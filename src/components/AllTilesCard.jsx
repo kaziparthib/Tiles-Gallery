@@ -6,13 +6,13 @@ import React from 'react';
 const AllTilesCard = ({tile}) => {
   
   return (
-    <Card className='border-2 flex flex-col justify-center items-center w-full'>
+    <Card className=' flex flex-col justify-center items-center w-full'>
       <div>
- <Image src={tile?.image} alt={tile?.title} width={300} height={320} className='object-cover w-[300px] h-[320px] rounded-xl'/>
+ <Image src={tile?.image} alt={tile?.title} width={200} height={220} className='w-auto h-auto rounded-xl'/>
 
       </div>
       <p className='font-black font-bold text-2xl'>{tile?.title}</p>
-   <Link href={'/'}> <Button variant="secondary" className='w-[200px]'>View Details</Button></Link>
+   <Link href={`/tiles/${tile.id}`}> <Button variant="secondary" className='w-[200px]'>View Details</Button></Link>
     </Card>
       
     

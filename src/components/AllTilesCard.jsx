@@ -8,7 +8,7 @@ const AllTilesCard = ({tile}) => {
   return (
     <Card className=' flex flex-col justify-center items-center w-full'>
       <div>
- <Image src={tile?.image} alt={tile?.title} width={200} height={220} className='w-auto h-auto rounded-xl'/>
+ <Image src={tile?.image} alt={tile?.title} width={200} height={220} className='w-[200px] h-[220px] rounded-xl'/>
 
       </div>
       <p className='font-black font-bold text-2xl'>{tile?.title}</p>

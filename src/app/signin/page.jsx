@@ -24,6 +24,11 @@ const userdata=Object.fromEntries(formData.entries())
      }
      
    }
+   const googlesignin=async()=>{
+     const data = await authClient.signIn.social({
+    provider: "google",
+  });
+   }
   return (
    <div className="flex items-center justify-center min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8">
       {/* Login Card Container */}
@@ -82,6 +87,7 @@ const userdata=Object.fromEntries(formData.entries())
 
        
         <button
+        onClick={()=>googlesignin()}
           type="button"
           className="w-full flex items-center justify-center px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200"
         >

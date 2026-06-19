@@ -1,8 +1,34 @@
 "use client";
 import Link from "next/link";
 import { Button } from "@heroui/react";
+import { authClient } from "@/lib/auth-client";
+
 
 const SignUpPage = () => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
+const formData=new FormData(e.currentTarget)
+const userdata=Object.fromEntries(formData.entries())
+    // const {data, error} = await authClient.signUp.email({
+    //     name,
+    //     email,
+    //     password,
+    //     image,
+    // })
+    const {data,error}=await authClient.signUp.email({
+      name:userdata.name,
+      email:userdata.email,
+      password:userdata.password,
+      image:userdata.photoUrl
+    })
+    if(error){
+      alert('failed')
+    }
+    if(data){
+      alert('success')
+    }
+    console.log({data,error});
+  }
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8 py-12">
      
@@ -17,7 +43,7 @@ const SignUpPage = () => {
         </div>
 
        
-        <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+        <form className="space-y-4" onSubmit={onSubmit}>
        
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700">

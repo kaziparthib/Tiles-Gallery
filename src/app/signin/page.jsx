@@ -2,11 +2,28 @@
 import { Button } from '@heroui/react';
 import Link from 'next/link';
 import React from 'react';
-
+import { authClient } from "@/lib/auth-client";
 const SignInPage = () => {
-  const signinfunc=(e)=>{
-e.preventDefault()
-  }
+ const onSubmitSignIn = async (e) => {
+     e.preventDefault();
+ 
+const formData=new FormData(e.currentTarget)
+const userdata=Object.fromEntries(formData.entries())
+     const {data,error}=await authClient.signIn.email({
+       
+       email:userdata.email,
+       password:userdata.password,
+       rememberMe:true,
+       callbackURL:'/'
+     })
+     if(error){
+       alert('failed')
+     }
+     if(data){
+       alert('success')
+     }
+     
+   }
   return (
    <div className="flex items-center justify-center min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8">
       {/* Login Card Container */}
@@ -21,7 +38,7 @@ e.preventDefault()
         </div>
 
         {/* Form */}
-        <form className="space-y-5" onSubmit={signinfunc}>
+        <form className="space-y-5" onSubmit={onSubmitSignIn}>
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               Email Address

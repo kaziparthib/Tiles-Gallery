@@ -22,6 +22,7 @@ const NavBar = () => {
               loading="eager"
               width={30}
               height={30}
+               referrerPolicy="no-referrer"
               className="object-cover h-auto w-auto"
             />
             <h3 className="font-black text-lg">Tiles Gallery</h3>

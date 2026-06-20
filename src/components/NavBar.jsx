@@ -15,7 +15,7 @@ const NavBar = () => {
       <nav className="flex flex-wrap justify-between items-center py-3 max-w-7xl mx-auto w-full gap-y-4">
 
         <Link href={"/"} className="order-1">
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center animate__animated hover: animate__bounce animate-slower">
             <Image
               src={tg}
               alt="Tiles Gallery"
@@ -30,13 +30,13 @@ const NavBar = () => {
 
 
         <ul className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-sm order-3 md:order-2 w-full md:w-auto">
-          <li className="hover:border-b border-gray-700">
+          <li className="hover:border-b border-gray-700 font-semibold">
             <Link href={"/"}>Home</Link>
           </li>
-          <li className="hover:border-b border-gray-700">
+          <li className="hover:border-b border-gray-700 font-semibold">
             <Link href={"/all-tiles"}>All Tiles</Link>
           </li>
-          <li className="hover:border-b border-gray-700">
+          <li className="hover:border-b border-gray-700 font-semibold">
             <Link href={"/my-profile"}>My Profile</Link>
           </li>
         </ul>

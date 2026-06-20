@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import {Button, Input, Label, Modal, Surface, TextField} from "@heroui/react";
 
 const ProfileModal = () => {
@@ -8,10 +9,11 @@ const ProfileModal = () => {
  
 const formData=new FormData(e.currentTarget)
 const userdata=Object.fromEntries(formData.entries())
-    // await authClient.updateUser({
-    //     name,
-    //     image
-    // })
+    await authClient.updateUser({
+        name:userdata.name,
+     
+      image:userdata.image
+    })
 console.log(userdata);
     
   };
@@ -25,9 +27,9 @@ console.log(userdata);
           <Modal.Dialog className="sm:max-w-md">
             <Modal.CloseTrigger />
             <Modal.Header>
-              <Modal.Icon className="bg-accent-soft text-accent-soft-foreground">
+              
                 
-              </Modal.Icon>
+              
               <Modal.Heading>Update User</Modal.Heading>
             </Modal.Header>
             <Modal.Body className="p-6">
@@ -46,7 +48,7 @@ console.log(userdata);
                     <Button slot="close" variant="secondary">
                       Cancel
                     </Button>
-                    <Button type="submit" slot="close">Save</Button>
+                    <Button type="submit"  >Save</Button>
                   </Modal.Footer>
                 </form>
               </Surface>
